@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+      
+
+        nav {
+            background-color: gray; /* Green background */
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Space between items */
+        }
+
+        nav ul li a {
+            color: white; /* White text */
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        @media (max-width: 600px) {
+            .hamburger {
+                display: block; /* Show hamburger on mobile */
+            }
+
+            nav ul {
+                display: none; /* Hide menu by default on mobile */
+                flex-direction: column; /* Stack items vertically */
+                position: absolute;
+                top: 60px; /* Below the navbar */
+                left: 0;
+                right: 0;
+                background-color: gray; /* Match background color */
+            }
+
+            nav ul li {
+                margin: 10px 0; /* Space between items */
+                text-align: center; /* Center text */
+            }
+
+            nav ul.show {
+                display: flex; /* Show menu when active */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="province.html">Provinces</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<script>
+    document.getElementById('hamburger').onclick = function() {
+        const navList = document.getElementById('nav-list');
+        navList.classList.toggle('show');
+    };
+</script>
+
+</body>
+</html>
